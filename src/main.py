@@ -1,10 +1,10 @@
 # Example file showing a basic pygame "game loop"
 import pygame
 from draw import Draw
-from enemy import Enemy
-from player import Player
-from enemy_list import EnemyList
-from constants import Colors
+from data.enemy import Enemy
+from data.player import Player
+from data.enemy_list import EnemyList
+from src.data.constants import Colors
 
 # pygame setup
 pygame.init()

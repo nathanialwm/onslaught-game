@@ -1,6 +1,6 @@
 import pygame
-from src.widgets.dropdown import ScrollableDropdown
-from constants import Colors, Fonts
+from widgets.dropdown import ScrollableDropdown
+from src.data.constants import Colors, Fonts
 
 
 class Draw:
@@ -19,8 +19,8 @@ class Draw:
             borderColour=Colors.PRIMARY_TEXT,
             borderThickness=2,
             textColour=Colors.PRIMARY_TEXT,
-            hoverColour=(100, 100, 100),
-            pressedColour=(50, 50, 50),
+            hoverColour=Colors.DROPDOWN_BG,
+            selectedColour=Colors.DROPDOWN_BG,
             inactiveColour=Colors.TAN_BG
         )
         return dropdown
