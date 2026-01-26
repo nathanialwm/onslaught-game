@@ -1,10 +1,8 @@
-# Example file showing a basic pygame "game loop"
 import pygame
 from draw import Draw
 from data.enemy import Enemy
 from data.player import Player
-from data.enemy_list import EnemyList
-from src.data.constants import Colors
+from data.constants import Colors
 
 # pygame setup
 pygame.init()
@@ -14,10 +12,11 @@ clock = pygame.time.Clock()
 running = True
 
 # Generate enemies and create enemy dropdown
-list_of_enemies = EnemyList.generate_enemies()
 draw = Draw(screen)
-dropdown = draw.draw_enemy_dropdown(list_of_enemies)
+dropdown = draw.draw_enemy_dropdown(Enemy.get_all())
 dropdown.set_selected("Mouse")
+
+player_instance = Player(name="Hero")
 
 #Game loop
 while running:
@@ -33,6 +32,13 @@ while running:
     # Handle dropdown events and draw
     dropdown.handle_events(events)
     dropdown.draw()
+
+    draw.draw_placeholder_menu()
+    # Look up the full Enemy object from the selected name
+    selected_enemy = Enemy.get_by_name(dropdown.get_selected())
+    if selected_enemy:
+        draw.draw_battle_section(selected_enemy, player_instance)
+        
 
     pygame.display.update()
     clock.tick(60)  # limits FPS to 60
