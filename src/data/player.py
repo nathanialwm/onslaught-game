@@ -1,8 +1,13 @@
+from data.constants import Images
+
 class Player:
-    def __init__(self, name, health=100, position=(0, 0)):
+    def __init__(self, name, health=100, attack=10, defense=5, position=(0, 0)):
         self.name = name
         self.health = health
+        self.attack = attack
+        self.defense = defense
         self.temp_health = health
+        self.portrait = Images.PLAYER_PORTRAIT
 
     def take_damage(self, amount):
         self.health -= amount

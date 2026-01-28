@@ -31,18 +31,18 @@ class Draw:
 
     # Draw the entire main battle section
     def draw_battle_section(self, enemy, player):
-        self._draw_portraits(enemy.portrait)
+        self._draw_portraits(enemy.portrait, player.portrait)
         self._draw_health_bars(enemy, player)
         self._draw_battle_names(enemy.name)
 
     #Draw the portraits of the player and enemy
-    def _draw_portraits(self, enemy_portrait):
+    def _draw_portraits(self, enemy_portrait, player_portrait):
         # Define enemy portrait
         enemy_portrait_loaded = pygame.image.load(enemy_portrait)
         enemy_portrait = pygame.transform.scale(enemy_portrait_loaded, (120, 120))
         # Define player portrait
-        player_portrait = pygame.image.load("../assets/images/placeholder.png")
-        player_portrait = pygame.transform.scale(player_portrait, (120, 120))
+        player_portrait_loaded = pygame.image.load(player_portrait)
+        player_portrait = pygame.transform.scale(player_portrait_loaded, (120, 120))
         # Render to screen
         self.screen.blit(player_portrait, (230, 240))
         self.screen.blit(enemy_portrait, (800, 240))
