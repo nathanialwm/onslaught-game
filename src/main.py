@@ -13,6 +13,8 @@ pygame.display.set_caption("Onslaught")
 clock = pygame.time.Clock()
 running = True
 
+PLAYER_ATTACK = pygame.event.custom_type()
+ENEMY_ATTACK = pygame.event.custom_type()
 BATTLE_EVENT = pygame.event.custom_type()
 pygame.time.set_timer(BATTLE_EVENT, 6000)
 
@@ -35,6 +37,12 @@ while running:
     for event in events:
         if event.type == pygame.QUIT: #click X to close window
             running = False
+        elif event.type == PLAYER_ATTACK:
+            battle.player_attack(PLAYER_ATTACK)
+            print(f"player attacked for {player_instance.attack}")
+        elif event.type == ENEMY_ATTACK:
+            battle.enemy_attack(ENEMY_ATTACK)
+            print(f"enemy attacked for {selected_enemy.attack}")
         # if event.type == BATTLE_EVENT:
             
 
@@ -50,7 +58,9 @@ while running:
     selected_enemy = Enemy.get_by_name(dropdown.get_selected())
     if selected_enemy:
         battle = Battle(player_instance, selected_enemy)
-        battle.start(screen)
+        battle.battle_sequence()
+        pygame.time.set_timer(PLAYER_ATTACK, int(player_instance.attack_speed * 1000))
+        pygame.time.set_timer(ENEMY_ATTACK, int(selected_enemy.attack_speed * 1000))
         draw.draw_battle_section(selected_enemy, player_instance)
         draw.draw_battle_widget_text(battle_widget, selected_enemy, player_instance)
 

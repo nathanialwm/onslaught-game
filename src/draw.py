@@ -78,12 +78,12 @@ class Draw:
     def init_battle_widget(self):
         return BattleWidget(
             screen = self.screen,
-            player_x=50,
-            enemy_x=800,
-            y=50,
-            player_width=300,
-            enemy_width=300,
-            summary_width=400
+            player_x=230,
+            enemy_x=960,
+            y=420,
+            player_width=280,
+            enemy_width=280,
+            summary_width=500
         )
     
     def draw_battle_widget_text(self, battle_widget, enemy, player):
@@ -100,6 +100,7 @@ class Draw:
                     f"Defense: {enemy.defense}"
                 ],
                 battle_summary=[
+                    "", # empty line to change placement of summary
                     "Battle Summary:",
                     f"Player dealt damage.",
                     f"Enemy dealt damage."

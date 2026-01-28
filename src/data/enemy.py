@@ -3,20 +3,26 @@ class Enemy:
     # Class-level registry of all enemies
     _registry = None
 
-    def __init__(self, name, health, attack, defense, portrait):
+    def __init__(self, name, health, attack, attack_speed, defense, position, portrait):
         self.name = name
+        #initialize battle stats
         self.health = health
         self.temp_health = health
         self.attack = attack
+        self.attack_speed = attack_speed
         self.defense = defense
+        # animation variables
+        self.position = position
+
         self.portrait = portrait
 
-    def attack(self, target):
-        target.health -= self.attack
-        print(f"{self.name} attacks {target.name} for {self.attack} damage!")
+    def take_damage(self, amount):
+        self.temp_health -= amount
+        if self.temp_health < 0:
+            self.temp_health = 0
 
     def is_alive(self):
-        return self.health > 0
+        return self.temp_health > 0
 
     def __str__(self):
         return f"Enemy: {self.name}, Health: {self.health}, Attack Power: {self.attack}"
@@ -24,17 +30,20 @@ class Enemy:
     @classmethod
     def _init_registry(cls):
         if cls._registry is None:
+            """
+            Name, heatlth, attack, attack_speed, defense, position, portrait
+            """
             enemy_data = [
-                ("Mouse", 10, 2, 3, Images.MOUSE_PORTRAIT),
-                ("Rat", 15, 3, 4, Images.PLAYER_PORTRAIT),
-                ("Bat", 20, 4, 5, Images.PLAYER_PORTRAIT),
-                ("Spider", 25, 5, 6, Images.PLAYER_PORTRAIT),
-                ("Snake", 30, 6, 7, Images.PLAYER_PORTRAIT),
-                ("Goblin", 40, 8, 8, Images.GOBLIN_PORTRAIT)
+                ("Mouse", 10, 2, 2, 3, (0,0), Images.MOUSE_PORTRAIT),
+                ("Rat", 15, 3, 2, 4, (0,0), Images.PLAYER_PORTRAIT),
+                ("Bat", 20, 4, 1.6, 5, (0,0), Images.PLAYER_PORTRAIT),
+                ("Spider", 25, 5, 1.2, 6, (0,0), Images.PLAYER_PORTRAIT),
+                ("Snake", 30, 6, 1.6, 7, (0,0), Images.PLAYER_PORTRAIT),
+                ("Goblin", 40, 8, 1.9, 8, (0,0), Images.GOBLIN_PORTRAIT)
             ]
             cls._registry = {
-                name: cls(name, health, attack, defense, portrait)
-                for name, health, attack, defense, portrait in enemy_data
+                name: cls(name, health, attack, attack_speed, defense, position, portrait)
+                for name, health, attack, attack_speed, defense, position, portrait in enemy_data
             }
 
     @classmethod

@@ -38,9 +38,11 @@ class BattleWidget:
         self.summary_width = summary_width
 
         # Styling parameters
-        self.font = kwargs.get("font", pygame.font.Font(Fonts.MAIN_FONT, 24))
+        self.font = kwargs.get("font", pygame.font.Font(Fonts.MAIN_FONT, 26))
+        self.summary_font = kwargs.get("font", pygame.font.Font(Fonts.MAIN_FONT, 20))
         self.text_color = kwargs.get("text_color", Colors.PRIMARY_TEXT)
-        self.line_spacing = kwargs.get("line_spacing", 25)
+        self.line_spacing = kwargs.get("line_spacing", 28)
+        self.summary_line_spacing = kwargs.get("line_spacing", 24)
 
         # Calculate center X for summary (midpoint between player and enemy sections)
         self.summary_x = player_x + player_width + (enemy_x - (player_x + player_width)) // 2
@@ -96,9 +98,9 @@ class BattleWidget:
         current_y = self.y
 
         for line in summary:
-            text_surface = self.font.render(line, True, self.text_color)
+            text_surface = self.summary_font.render(line, True, self.text_color)
             text_rect = text_surface.get_rect()
             # Center-align the text
             text_x = self.summary_x - text_rect.width // 2
             self.screen.blit(text_surface, (text_x, current_y))
-            current_y += self.line_spacing
+            current_y += self.summary_line_spacing
