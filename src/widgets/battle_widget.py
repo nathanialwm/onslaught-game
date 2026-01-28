@@ -78,6 +78,7 @@ class BattleWidget:
             text_surface = self.font.render(stat, True, self.text_color)
             self.screen.blit(text_surface, (self.player_x, current_y))
             current_y += self.line_spacing
+            print("stat player print")
 
     def _draw_enemy_stats(self, stats):
         """Draw enemy stats right-aligned."""
@@ -90,6 +91,7 @@ class BattleWidget:
             text_x = self.enemy_x + self.enemy_width - text_rect.width
             self.screen.blit(text_surface, (text_x, current_y))
             current_y += self.line_spacing
+            print("stat enemy print")
 
     def _draw_battle_summary(self, summary):
         """Draw battle summary center-aligned."""
@@ -102,3 +104,4 @@ class BattleWidget:
             text_x = self.summary_x - text_rect.width // 2
             self.screen.blit(text_surface, (text_x, current_y))
             current_y += self.line_spacing
+            print("battle summary printed")

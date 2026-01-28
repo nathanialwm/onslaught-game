@@ -1,9 +1,10 @@
 import pygame
+from logic import battle
 from widgets.dropdown import ScrollableDropdown
 from data.constants import Colors, Fonts
 from widgets.health_bar import HealthBar
-from data.player import Player
-from data.enemy import Enemy
+from widgets.battle_widget import BattleWidget
+
 class Draw:
     def __init__(self, screen):
         self.screen = screen
@@ -73,3 +74,34 @@ class Draw:
     def draw_placeholder_menu(self):
         placeholder_menu = pygame.Rect(0, 0, 180, 720)
         pygame.draw.rect(self.screen, Colors.DROPDOWN_BG, placeholder_menu)
+    
+    def init_battle_widget(self):
+        return BattleWidget(
+            screen = self.screen,
+            player_x=50,
+            enemy_x=800,
+            y=50,
+            player_width=300,
+            enemy_width=300,
+            summary_width=400
+        )
+    
+    def draw_battle_widget_text(self, battle_widget, enemy, player):
+        if battle_widget:
+            battle_widget.draw(
+                player_stats=[
+                    f"Health: {player.health}",
+                    f"Attack: {player.attack}",
+                    f"Defense: {player.defense}"
+                ],
+                enemy_stats=[
+                    f"Health: {enemy.health}",
+                    f"Attack: {enemy.attack}",
+                    f"Defense: {enemy.defense}"
+                ],
+                battle_summary=[
+                    "Battle Summary:",
+                    f"Player dealt damage.",
+                    f"Enemy dealt damage."
+                ]
+            )
