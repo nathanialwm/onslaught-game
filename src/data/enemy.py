@@ -1,3 +1,4 @@
+from data.constants import Images
 class Enemy:
     # Class-level registry of all enemies
     _registry = None
@@ -23,12 +24,12 @@ class Enemy:
     def _init_registry(cls):
         if cls._registry is None:
             enemy_data = [
-                ("Mouse", 10, 2, "../assets/images/mouse.png"),
-                ("Rat", 15, 3, "../assets/images/placeholder.png"),
-                ("Bat", 20, 4, "../assets/images/placeholder.png"),
-                ("Spider", 25, 5, "../assets/images/placeholder.png"),
-                ("Snake", 30, 6, "../assets/images/placeholder.png"),
-                ("Goblin", 40, 8, "../assets/images/goblin.png")
+                ("Mouse", 10, 2, Images.MOUSE_PORTRAIT),
+                ("Rat", 15, 3, Images.PLAYER_PORTRAIT),
+                ("Bat", 20, 4, Images.PLAYER_PORTRAIT),
+                ("Spider", 25, 5, Images.PLAYER_PORTRAIT),
+                ("Snake", 30, 6, Images.PLAYER_PORTRAIT),
+                ("Goblin", 40, 8, Images.GOBLIN_PORTRAIT)
             ]
             cls._registry = {
                 name: cls(name, health, attack, portrait)
