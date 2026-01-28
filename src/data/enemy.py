@@ -34,12 +34,12 @@ class Enemy:
             Name, heatlth, attack, attack_speed, defense, position, portrait
             """
             enemy_data = [
-                ("Mouse", 10, 2, 2, 3, (0,0), Images.MOUSE_PORTRAIT),
-                ("Rat", 15, 3, 2, 4, (0,0), Images.PLAYER_PORTRAIT),
-                ("Bat", 20, 4, 1.6, 5, (0,0), Images.PLAYER_PORTRAIT),
-                ("Spider", 25, 5, 1.2, 6, (0,0), Images.PLAYER_PORTRAIT),
-                ("Snake", 30, 6, 1.6, 7, (0,0), Images.PLAYER_PORTRAIT),
-                ("Goblin", 40, 8, 1.9, 8, (0,0), Images.GOBLIN_PORTRAIT)
+                ("Mouse", 10, 2, 2, 0, (0,0), Images.MOUSE_PORTRAIT),
+                ("Rat", 15, 3, 2, 2, (0,0), Images.PLAYER_PORTRAIT),
+                ("Bat", 20, 4, 1.6, 2, (0,0), Images.PLAYER_PORTRAIT),
+                ("Spider", 25, 5, 1.2, 2, (0,0), Images.PLAYER_PORTRAIT),
+                ("Snake", 35, 8, 1.6, 5, (0,0), Images.PLAYER_PORTRAIT),
+                ("Goblin", 50, 12, 1.9, 10, (0,0), Images.GOBLIN_PORTRAIT)
             ]
             cls._registry = {
                 name: cls(name, health, attack, attack_speed, defense, position, portrait)

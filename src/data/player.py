@@ -1,7 +1,7 @@
 from data.constants import Images
 
 class Player:
-    def __init__(self, name, health=100, attack=10, attack_speed=1.5, defense=5,
+    def __init__(self, name, health=15, attack=2, attack_speed=1.5, defense=0,
                 position=(0, 0), portrait=Images.PLAYER_PORTRAIT):
         self.name = name
         #initialize battle stats

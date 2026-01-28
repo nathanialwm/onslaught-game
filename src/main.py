@@ -28,7 +28,9 @@ selected_enemy = dropdown.set_selected("Mouse")
 
 # initialize player and enemy
 player_instance = Player(name="Hero")
-
+pygame.time.set_timer(PLAYER_ATTACK, int(player_instance.attack_speed * 1000))
+print(int(player_instance.attack_speed * 1000))
+pygame.time.set_timer(ENEMY_ATTACK, int(2000))
 #Game loop
 while running:
     screen.fill(Colors.TAN_BG)
@@ -59,8 +61,7 @@ while running:
     if selected_enemy:
         battle = Battle(player_instance, selected_enemy)
         battle.battle_sequence()
-        pygame.time.set_timer(PLAYER_ATTACK, int(player_instance.attack_speed * 1000))
-        pygame.time.set_timer(ENEMY_ATTACK, int(selected_enemy.attack_speed * 1000))
+
         draw.draw_battle_section(selected_enemy, player_instance)
         draw.draw_battle_widget_text(battle_widget, selected_enemy, player_instance)
 
