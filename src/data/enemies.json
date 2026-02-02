@@ -1,0 +1,18 @@
+{
+    "enemies_list": [
+        {
+            "id": "1",
+            "name": "Mouse",
+            "portrait": "assets/images/mouse.png",
+            "health": 10,
+            "attack": 2,
+            "attack_speed": 2,
+            "defense": 0,
+            "accuracy": 10,
+            "dodge": 6,
+            "exp_reward": 1,
+            "gold_reward": 1,
+            "rarity_modifier": 0.8
+        }
+    ]
+}

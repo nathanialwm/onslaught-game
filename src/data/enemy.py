@@ -1,9 +1,10 @@
 from data.constants import Images
+import json
 class Enemy:
     # Class-level registry of all enemies
     _registry = None
 
-    def __init__(self, name, health, attack, attack_speed, defense, position, portrait):
+    def __init__(self, name, health, attack, attack_speed, defense, portrait):
         self.name = name
         #initialize battle stats
         self.health = health
@@ -12,7 +13,7 @@ class Enemy:
         self.attack_speed = attack_speed
         self.defense = defense
         # animation variables
-        self.position = position
+        self.position = (0,0)
 
         self.portrait = portrait
 
@@ -33,14 +34,9 @@ class Enemy:
             """
             Name, heatlth, attack, attack_speed, defense, position, portrait
             """
-            enemy_data = [
-                ("Mouse", 10, 2, 2, 0, (0,0), Images.MOUSE_PORTRAIT),
-                ("Rat", 15, 3, 2, 2, (0,0), Images.PLAYER_PORTRAIT),
-                ("Bat", 20, 4, 1.6, 2, (0,0), Images.PLAYER_PORTRAIT),
-                ("Spider", 25, 5, 1.2, 2, (0,0), Images.PLAYER_PORTRAIT),
-                ("Snake", 35, 8, 1.6, 5, (0,0), Images.PLAYER_PORTRAIT),
-                ("Goblin", 50, 12, 1.9, 10, (0,0), Images.GOBLIN_PORTRAIT)
-            ]
+            with open("enemies.json", "r", encoding="utf-8") as f:
+                loaded_data = json.load(f)
+            enemy_data = loaded_data["enemies_list"]
             cls._registry = {
                 name: cls(name, health, attack, attack_speed, defense, position, portrait)
                 for name, health, attack, attack_speed, defense, position, portrait in enemy_data
