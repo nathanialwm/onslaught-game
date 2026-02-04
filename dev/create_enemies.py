@@ -8,10 +8,10 @@ all_enemies = []
 def single_enemy():
     enemy_data = {
             "name": "Mouse",
-            "portrait": "",
+            "level": 1,
             "health": 0,
             "attack": 0,
-            "attack_speed": 0,
+            "attack_speed": 0.0,
             "defense": 0,
             "accuracy": 0,
             "dodge": 0,
