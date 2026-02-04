@@ -39,7 +39,7 @@ class Draw:
     #Draw the portraits of the player and enemy
     def _draw_portraits(self, enemy_portrait, player_portrait):
         # Define enemy portrait
-        enemy_portrait_loaded = pygame.image.load(enemy_portrait)
+        enemy_portrait_loaded = pygame.image.load(enemy_portrait) if enemy_portrait else pygame.image.load("assets/images/portraits/placeholder.png")
         enemy_portrait = pygame.transform.scale(enemy_portrait_loaded, (120, 120))
         # Define player portrait
         player_portrait_loaded = pygame.image.load(player_portrait)
