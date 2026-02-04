@@ -1,5 +1,8 @@
+import logging
 import pygame
 from logic import battle
+
+logger = logging.getLogger("onslaught_logs")
 from widgets.dropdown import ScrollableDropdown
 from data.constants import Colors, Fonts
 from widgets.health_bar import HealthBar

@@ -1,4 +1,7 @@
+import logging
 from data.constants import Images
+
+logger = logging.getLogger("onslaught_logs")
 
 class Player:
     def __init__(self, name, health=15, attack=2, attack_speed=1.5, defense=0,

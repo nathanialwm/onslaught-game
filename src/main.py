@@ -1,11 +1,19 @@
 import pygame
+import argparse
+from utils.logger import setup_logger
 from draw import Draw
 from data.enemy import Enemy
 from data.player import Player
-from data.constants import Colors
+from data.constants import Colors, Config
 from logic.battle import Battle
 
+# Argument parser for developer mode
+if Config.DEV_MODE_AVAILABLE:
+    argparser = argparse.ArgumentParser(description="Onslaught Game")
+    argparser.add_argument("--dev", action="store_true", help="Enable developer mode with extra features")
 
+# Setup logger
+logger = setup_logger(Config.DEV_MODE_AVAILABLE)
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
@@ -29,7 +37,7 @@ selected_enemy = dropdown.set_selected("Mouse")
 # initialize player and enemy
 player_instance = Player(name="Hero")
 pygame.time.set_timer(PLAYER_ATTACK, int(player_instance.attack_speed * 1000))
-print(int(player_instance.attack_speed * 1000))
+
 pygame.time.set_timer(ENEMY_ATTACK, int(2000))
 #Game loop
 while running:

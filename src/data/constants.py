@@ -1,4 +1,7 @@
+import logging
 import os.path
+
+logger = logging.getLogger("onslaught_logs")
 class Colors:
     TAN_BG = "#f0edd3"
     PRIMARY_TEXT = "#45454b"
@@ -17,3 +20,9 @@ class Images:
         os.path.dirname(__file__), "..", "..", "assets", "images", "mouse.png")
     GOBLIN_PORTRAIT = os.path.join(
         os.path.dirname(__file__), "..", "..", "assets", "images", "goblin.png")
+
+class Sounds:
+    pass
+
+class Config:
+    DEV_MODE_AVAILABLE = True
