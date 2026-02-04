@@ -1,4 +1,7 @@
+import logging
 import pygame
+
+logger = logging.getLogger("onslaught_logs")
 
 class ScrollableDropdown:
     def __init__(self, screen, x, y, width, height, name, choices, **kwargs):

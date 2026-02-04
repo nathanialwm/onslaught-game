@@ -1,4 +1,7 @@
+import logging
 import pygame
+
+logger = logging.getLogger("onslaught_logs")
 
 class Battle:
     def __init__(self, player, enemy):

@@ -1,4 +1,7 @@
+import logging
 import pygame
+
+logger = logging.getLogger("onslaught_logs")
 class HealthBar:
     def __init__(self, screen, x, y, width, height, fill_color, background_color=(50, 50, 50)):
         self.screen = screen
