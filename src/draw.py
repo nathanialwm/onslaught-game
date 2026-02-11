@@ -95,17 +95,22 @@ class Draw:
                 player_stats=[
                     f"Health: {player.health}",
                     f"Attack: {player.attack}",
+                    f"Attack Speed: {player.attack_speed}",
                     f"Defense: {player.defense}"
+                    f"Accuracy: {player.accuracy}",
+                    f"Dodge: {player.dodge}"
+                    f"EXP: {player.exp}",
+                    f"Gold: {player.gold}"
                 ],
                 enemy_stats=[
                     f"Health: {enemy.health}",
                     f"Attack: {enemy.attack}",
+                    f"Attack Speed: {enemy.attack_speed}",
                     f"Defense: {enemy.defense}"
+                    f"Accuracy: {enemy.accuracy}",
+                    f"Dodge: {enemy.dodge}",
+                    f"EXP Reward: {enemy.exp_reward}",
+                    f"Gold Reward: {enemy.gold_reward}"
                 ],
-                battle_summary=[
-                    "", # empty line to change placement of summary
-                    "Battle Summary:",
-                    f"Player dealt damage.",
-                    f"Enemy dealt damage."
-                ]
+                battle_summary=battle_widget.summary
             )
