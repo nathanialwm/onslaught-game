@@ -1,0 +1,16 @@
+{
+  "name": "enemy_updater",
+  "version": "1.0.0",
+  "description": "GUI or adding and updating enemy data",
+  "license": "ISC",
+  "author": "Nathanial Martin",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "--test"
+  },
+  "devDependencies": {
+    "electron": "^40.3.0"
+  }
+}

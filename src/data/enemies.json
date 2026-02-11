@@ -6,26 +6,26 @@
             "level": 1,
             "health": 10,
             "attack": 2,
-            "attack_speed": 2.0,
+            "attack_speed": 2,
             "defense": 0,
             "accuracy": 10,
             "dodge": 6,
             "exp_reward": 1,
             "gold_reward": 1,
-            "rarity_modifier": 1.0
+            "rarity_modifier": 1
         },
         {
             "name": "Rat",
             "level": 2,
             "health": 16,
             "attack": 4,
-            "attack_speed": 2.0,
+            "attack_speed": 2,
             "defense": 2,
             "accuracy": 14,
             "dodge": 10,
             "exp_reward": 2,
             "gold_reward": 3,
-            "rarity_modifier": 1.0
+            "rarity_modifier": 1
         },
         {
             "name": "Bat",
@@ -117,6 +117,19 @@
             "exp_reward": 31,
             "gold_reward": 50,
             "rarity_modifier": 1.025
+        },
+        {
+            "name": "Hobgoblin",
+            "level": 40,
+            "health": 180,
+            "attack": 72,
+            "attack_speed": 1.95,
+            "defense": 63,
+            "accuracy": 62,
+            "dodge": 59,
+            "exp_reward": 39,
+            "gold_reward": 61,
+            "rarity_modifier": 1.03
         }
     ]
 }
