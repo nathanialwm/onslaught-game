@@ -1,5 +1,8 @@
+import logging
 import pygame
 from data.constants import Fonts, Colors
+
+logger = logging.getLogger("onslaught_logs")
 
 
 class BattleWidget:

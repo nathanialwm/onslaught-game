@@ -1,6 +1,9 @@
+import logging
 import os
 from data.constants import Images
 import json
+
+logger = logging.getLogger("onslaught_logs")
 class Enemy:
     # Class-level registry of all enemies
     _registry = None
