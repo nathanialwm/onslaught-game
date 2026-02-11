@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>Enemy Updater</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <button class="btn-duplicate" id="btn-duplicate">Duplicate Window</button>
+        <h2>Enemies</h2>
+        <button class="btn-new" id="btn-new">+ New Enemy</button>
+      </div>
+      <div class="enemy-list" id="enemy-list"></div>
+    </aside>
+
+    <main class="main-panel" id="main-panel">
+      <div class="placeholder" id="placeholder">
+        Select an enemy or create a new one
+      </div>
+
+      <div id="editor" style="display: none;">
+        <h2 id="editor-title">New Enemy</h2>
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label for="field-name">Name</label>
+            <input type="text" id="field-name" />
+          </div>
+          <div class="form-group">
+            <label for="field-level">Level</label>
+            <input type="number" id="field-level" min="1" />
+          </div>
+          <div class="form-group">
+            <label for="field-health">Health</label>
+            <input type="number" id="field-health" min="0" />
+          </div>
+          <div class="form-group">
+            <label for="field-attack">Attack</label>
+            <input type="number" id="field-attack" min="0" />
+          </div>
+          <div class="form-group">
+            <label for="field-attack_speed">Attack Speed</label>
+            <input type="number" id="field-attack_speed" min="0" step="0.1" />
+          </div>
+          <div class="form-group">
+            <label for="field-defense">Defense</label>
+            <input type="number" id="field-defense" min="0" />
+          </div>
+          <div class="form-group">
+            <label for="field-accuracy">Accuracy</label>
+            <input type="number" id="field-accuracy" min="0" />
+          </div>
+          <div class="form-group">
+            <label for="field-dodge">Dodge</label>
+            <input type="number" id="field-dodge" min="0" />
+          </div>
+          <div class="form-group">
+            <label for="field-exp_reward">Exp Reward</label>
+            <input type="number" id="field-exp_reward" min="0" />
+          </div>
+          <div class="form-group">
+            <label for="field-gold_reward">Gold Reward</label>
+            <input type="number" id="field-gold_reward" min="0" />
+          </div>
+          <div class="form-group">
+            <label for="field-rarity_modifier">Rarity Modifier</label>
+            <input type="number" id="field-rarity_modifier" min="0" step="0.001" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn-save" id="btn-save">Save</button>
+          <button class="btn-delete hidden" id="btn-delete">Delete</button>
+        </div>
+        <div class="status-msg" id="status-msg"></div>
+      </div>
+    </main>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
