@@ -59,7 +59,7 @@ while running:
     # Look up the full Enemy object from the selected name
     selected_enemy = Enemy.get_by_name(dropdown.get_selected())
     if selected_enemy:
-        battle = Battle(player_instance, selected_enemy)
+        battle = Battle(player_instance, selected_enemy, battle_widget)
         battle.battle_sequence()
 
         draw.draw_battle_section(selected_enemy, player_instance)
