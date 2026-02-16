@@ -2,6 +2,8 @@
 
 A remake of AutoBattle RPG. An incremental, mostly text-based autobattling RPG built with Python and Pygame. Fight hundreds of monsters, collect unique equipment, and build your character to get infinitely stronger!
 
+![Gameplay Screenshot](dev/assets/gameplay_earliest.png)
+
 ## Table of Contents
 
 - [Status](#status)
@@ -60,6 +62,8 @@ python main.py
 The `dev/` directory contains custom-built tools for streamlining game development, specifically around enemy data management.
 
 ### Enemy Updater (Electron GUI)
+
+![Enemy Updater Tool](dev/assets/tool_enemy_updater.png)
 
 **Location:** `dev/enemy_updater/`
 
