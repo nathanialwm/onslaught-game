@@ -33,6 +33,10 @@ class BattleWidget:
                 - line_spacing: Space between lines in pixels (default: 25)
         """
         self.screen = screen
+        self.summary = [
+            "",
+            "Battle in progress..."
+        ]
         self.player_x = player_x
         self.enemy_x = enemy_x
         self.y = y
@@ -73,7 +77,7 @@ class BattleWidget:
         self._draw_enemy_stats(enemy_stats)
 
         # Draw battle summary (center-aligned)
-        self._draw_battle_summary(battle_summary)
+        self._draw_battle_summary()
 
     def _draw_player_stats(self, stats):
         """Draw player stats left-aligned."""
@@ -96,11 +100,11 @@ class BattleWidget:
             self.screen.blit(text_surface, (text_x, current_y))
             current_y += self.line_spacing
 
-    def _draw_battle_summary(self, summary):
+    def _draw_battle_summary(self):
         """Draw battle summary center-aligned."""
         current_y = self.y
 
-        for line in summary:
+        for line in self.summary:
             text_surface = self.summary_font.render(line, True, self.text_color)
             text_rect = text_surface.get_rect()
             # Center-align the text
