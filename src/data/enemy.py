@@ -8,7 +8,8 @@ class Enemy:
     # Class-level registry of all enemies
     _registry = None
 
-    def __init__(self, name, level, health, attack, attack_speed, defense, accuracy, dodge, exp_reward, gold_reward, rarity_modifier):
+    def __init__(self, id, name, level, health, attack, attack_speed, defense, accuracy, dodge, exp_reward, gold_reward, rarity_modifier):
+        self.id = id
         self.name = name
         self.level = level
         #initialize battle stats
@@ -51,6 +52,7 @@ class Enemy:
             enemy_data = loaded_data["enemies_list"]
             cls._registry = {
                 enemy_dict["name"]: Enemy(
+                    id=enemy_dict["id"],
                     name=enemy_dict["name"],
                     level=enemy_dict["level"],
                     health=enemy_dict["health"],

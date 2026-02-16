@@ -1,15 +1,15 @@
 const FIELDS = [
-  { key: 'name',            type: 'string' },
+  { key: 'name',            type: 'string', fullWidth: true },
   { key: 'level',           type: 'int' },
   { key: 'health',          type: 'int' },
   { key: 'attack',          type: 'int' },
-  { key: 'attack_speed',    type: 'float' },
+  { key: 'attack_speed',    type: 'float', step: 0.1 },
   { key: 'defense',         type: 'int' },
   { key: 'accuracy',        type: 'int' },
   { key: 'dodge',           type: 'int' },
   { key: 'exp_reward',      type: 'int' },
   { key: 'gold_reward',     type: 'int' },
-  { key: 'rarity_modifier', type: 'float' }
+  { key: 'rarity_modifier', type: 'float', step: 0.001 }
 ];
 
 let enemies = [];
@@ -25,6 +25,31 @@ const btnDelete = document.getElementById('btn-delete');
 const statusMsg = document.getElementById('status-msg');
 const btnDuplicate = document.getElementById('btn-duplicate');
 
+// --- Build Form from FIELDS ---
+
+function buildForm() {
+  const formGrid = document.getElementById('form-grid');
+  formGrid.innerHTML = '';
+  for (const field of FIELDS) {
+    const group = document.createElement('div');
+    group.className = 'form-group' + (field.fullWidth ? ' full-width' : '');
+
+    const label = document.createElement('label');
+    label.setAttribute('for', 'field-' + field.key);
+    label.textContent = field.key.replace(/_/g, ' ');
+    group.appendChild(label);
+
+    const input = document.createElement('input');
+    input.id = 'field-' + field.key;
+    input.type = field.type === 'string' ? 'text' : 'number';
+    if (field.type !== 'string') input.min = '0';
+    if (field.step) input.step = field.step;
+    group.appendChild(input);
+
+    formGrid.appendChild(group);
+  }
+}
+
 // --- Load & Render List ---
 
 async function loadEnemies() {
@@ -37,7 +62,7 @@ function renderList() {
   enemies.forEach((enemy, index) => {
     const item = document.createElement('div');
     item.className = 'enemy-list-item' + (index === editingIndex ? ' active' : '');
-    item.textContent = enemy.name;
+    item.textContent = enemy.id + '. ' + enemy.name;
     item.addEventListener('click', () => selectEnemy(index));
     listEl.appendChild(item);
   });
@@ -95,9 +120,12 @@ async function save() {
   }
 
   if (editingIndex === -1) {
+    const maxId = enemies.reduce((max, e) => Math.max(max, e.id || 0), 0);
+    enemy.id = maxId + 1;
     enemies.push(enemy);
     editingIndex = enemies.length - 1;
   } else {
+    enemy.id = enemies[editingIndex].id;
     enemies[editingIndex] = enemy;
   }
 
@@ -145,4 +173,5 @@ btnNew.addEventListener('click', newEnemy);
 btnSave.addEventListener('click', save);
 btnDelete.addEventListener('click', deleteEnemy);
 
+buildForm();
 loadEnemies();
