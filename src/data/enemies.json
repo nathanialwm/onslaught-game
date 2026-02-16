@@ -1,7 +1,7 @@
 {
     "enemies_list": [
         {
-            "id": "1",
+            "id": 1,
             "name": "Mouse",
             "level": 1,
             "health": 10,
@@ -15,6 +15,7 @@
             "rarity_modifier": 1
         },
         {
+            "id": 2,
             "name": "Rat",
             "level": 2,
             "health": 16,
@@ -28,6 +29,7 @@
             "rarity_modifier": 1
         },
         {
+            "id": 3,
             "name": "Bat",
             "level": 3,
             "health": 20,
@@ -41,6 +43,7 @@
             "rarity_modifier": 1.004
         },
         {
+            "id": 4,
             "name": "A Small Dog",
             "level": 5,
             "health": 44,
@@ -54,6 +57,7 @@
             "rarity_modifier": 1.009
         },
         {
+            "id": 5,
             "name": "A Larger Dog",
             "level": 8,
             "health": 90,
@@ -67,6 +71,7 @@
             "rarity_modifier": 1.013
         },
         {
+            "id": 6,
             "name": "Big Woof",
             "level": 14,
             "health": 150,
@@ -80,6 +85,7 @@
             "rarity_modifier": 1.018
         },
         {
+            "id": 7,
             "name": "Goblin",
             "level": 20,
             "health": 100,
@@ -93,6 +99,7 @@
             "rarity_modifier": 1.02
         },
         {
+            "id": 8,
             "name": "Zombie",
             "level": 25,
             "health": 155,
@@ -106,6 +113,7 @@
             "rarity_modifier": 1.022
         },
         {
+            "id": 9,
             "name": "Skeleton",
             "level": 32,
             "health": 92,
@@ -119,6 +127,7 @@
             "rarity_modifier": 1.025
         },
         {
+            "id": 10,
             "name": "Hobgoblin",
             "level": 40,
             "health": 180,

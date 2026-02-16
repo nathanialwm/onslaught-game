@@ -1,5 +1,7 @@
 # Onslaught
 
+![Gameplay Screenshot](dev/assets/gameplay_earliest.png)
+
 WIP remake of AutoBattle RPG. An incremental mostly text-based autobattling RPG. Fight 100s of monsters, collect unique equipment, build your character to get infinitely stronger!
 
 ## Table of Contents
